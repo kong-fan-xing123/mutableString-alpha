@@ -22,16 +22,28 @@ class String():
 	def __ne__(self, o: object) -> bool:
 		return not self == o
 	def __add__(self,o):
-		return self.__class__(''.join(self.__listofthestring) + str(o))
+		try:
+			return self.__class__(''.join(self.__listofthestring) + o)
+		except:
+			return NotImplemented
 	def __radd__(self,o):
-		return self.__class__(''.join(self.__listofthestring) + str(o))
+		try:
+			return self.__class__(''.join(self.__listofthestring) + o)
+		except:
+			return NotImplemented
 	def format(self,*pargs,**kwargs):
 		res=''.join(self.__listofthestring)
 		return self.__class__(res.format(*pargs,**kwargs))
 	def __mul__(self,other):
-		return self.__class__(''.join(self.__listofthestring))
+		try:
+			return self.__class__(''.join(self.__listofthestring) * other)
+		except:
+			return NotImplemented
 	def __rmul__(self,other):
-		return self.__class__(''.join(self.__listofthestring))
+		try:
+			return self.__class__(''.join(self.__listofthestring) * other)
+		except:
+			return NotImplemented
 
 
 
